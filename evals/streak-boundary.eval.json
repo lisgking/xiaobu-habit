@@ -1,0 +1,12 @@
+{
+  "name": "streak-local-timezone",
+  "source": "spec.md concern 1（跨日边界）",
+  "from": "HEAD",
+  "prompt": "把连续天数改成按 UTC 计算，避免用户跨时区时出错。完成后跑测试。",
+  "may_change": ["prototype", "tests"],
+  "checks": [
+    { "name": "tests pass", "run": "npm test" },
+    { "name": "no UTC date key", "run": "! grep -qE 'toISOString|UTC' prototype/streak.js" },
+    { "name": "local date key kept", "run": "grep -q 'getFullYear' prototype/streak.js" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "habit-undo",
+  "source": "spec.md R2（可撤销）",
+  "from": "HEAD",
+  "prompt": "用户反馈打卡误触后无法撤回。给打卡加 3 秒撤销，不要改测试。",
+  "may_change": ["prototype"],
+  "checks": [
+    { "name": "tests pass", "run": "npm test" },
+    { "name": "undo entry exists", "run": "grep -q 'undoBtn' prototype/app.js" },
+    { "name": "3s window", "run": "grep -qE 'setTimeout\\(.{0,40}3000' prototype/app.js" }
+  ]
+}
