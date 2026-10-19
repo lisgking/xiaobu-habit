@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>小步 · 习惯打卡</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="phone">
+  <header class="top">
+    <div class="brand">小步 <span class="sub">习惯打卡</span></div>
+    <div class="streak" id="streakBadge">🔥 0 天</div>
+  </header>
+
+  <main>
+    <section id="view-today" class="view">
+      <div class="date" id="todayLabel"></div>
+      <h1>今天，做一点点</h1>
+      <div id="habitList" class="habit-list"></div>
+      <p class="hint">点击卡片打卡，3 秒内可撤销</p>
+    </section>
+
+    <section id="view-week" class="view hidden">
+      <div class="date">过去 7 天</div>
+      <h1>节奏比强度重要</h1>
+      <div id="weekGrid" class="week-grid"></div>
+      <p class="hint" id="weekHint"></p>
+    </section>
+
+    <section id="view-settings" class="view hidden">
+      <div class="date">设置</div>
+      <h1>数据只在本机</h1>
+      <div class="settings">
+        <button id="exportBtn" class="btn">导出 JSON</button>
+        <label class="btn file">导入 JSON<input id="importFile" type="file" accept="application/json" hidden></label>
+        <button id="clearBtn" class="btn danger">清空数据</button>
+      </div>
+      <p class="hint">清理浏览器缓存会丢失数据，请先导出。</p>
+    </section>
+  </main>
+
+  <nav class="tabs">
+    <button data-tab="today" class="tab active">今日</button>
+    <button data-tab="week" class="tab">周视图</button>
+    <button data-tab="settings" class="tab">设置</button>
+  </nav>
+
+  <div id="toast" class="toast hidden"><span id="toastText">已打卡</span><button id="undoBtn">撤销</button></div>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
